@@ -6,13 +6,14 @@ import com.ajinkya.app.ws.utils.UserProfileUtils;
 
 public class UsersServiceImpl implements UsersService {
 
-    UserProfileUtils userProfileUtils = new UserProfileUtils();
+    private UserProfileUtils userProfileUtils = new UserProfileUtils();
 
     @Override
-    public UserDTO createUser(UserDTO userDto) {
+    public UserDTO createUser(UserDTO user) {
         UserDTO returnValue = new UserDTO();
 
         // Validate the required fields
+        userProfileUtils.validateRequiredFields(user);
 
         // Check if user already exists
 
